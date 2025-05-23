@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-monitoring-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-monitoring-app
+  template:
+    metadata:
+      labels:
+        app: node-monitoring-app
+    spec:
+      containers:
+        - name: node-monitoring-app
+          image: niwanthiedi/node-monitoring-app:v1
+          ports:
+            - containerPort: 3000
